@@ -2,3 +2,10 @@
 /public/build/
 
 .DS_Store
+
+*.sketch
+*.fig
+*.xd
+
+.DS_Store
+.prettierignore
