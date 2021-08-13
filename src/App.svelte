@@ -1,6 +1,6 @@
 <script lang="ts">
   import Logo from './assets/logo.svg';
-  import Content from './components/Content.svelte';
+  import Content from './components/Content/Content.svelte';
 </script>
 
 <div class="main">
