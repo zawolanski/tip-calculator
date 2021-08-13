@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <div>
+    <div class="summary">
+      <div>
+        <p class="summary__title">Tip Amount</p>
+        <p class="summary__person">/&nbsp;person</p>
+      </div>
+      <p class="summary__amount">0.00</p>
+    </div>
+    <div class="summary summary--2">
+      <div>
+        <p class="summary__title">Total</p>
+        <p class="summary__person">/&nbsp;person</p>
+      </div>
+      <p class="summary__amount">0.00</p>
+    </div>
+    <button type="reset" class="summary__button">reset</button>
+  </div>
+</div>
+
+<style lang="scss">
+  .wrapper {
+    padding: 0 24px 32px;
+
+    & > div {
+      padding: 37px 22px 24px;
+      background: var(--very__dark__cyab);
+      border-radius: 15px;
+    }
+  }
+
+  .summary {
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    &--2 {
+      margin-bottom: 32px;
+    }
+  }
+
+  .summary__title {
+    color: var(--white);
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .summary__person {
+    color: var(--dark__grayish__cyan__1);
+    font-size: 13px;
+    line-height: 19px;
+  }
+
+  .summary__amount {
+    color: var(--strong__cyan);
+    font-size: 32px;
+    line-height: 47px;
+    letter-spacing: -0.666667px;
+
+    &:before {
+      content: '$';
+      font-size: 32px;
+    }
+  }
+
+  .summary__button {
+    border: 0;
+    background: var(--strong__cyan);
+    color: var(--very__dark__cyab);
+    width: 100%;
+    height: 48px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
