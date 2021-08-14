@@ -12,13 +12,20 @@
 
 <style lang="scss">
   .main {
-    max-width: 920px;
+    max-width: 940px;
     width: 100%;
     margin: 0 auto;
+
+    @media only screen and (min-width: 940px) {
+      padding: 0 10px;
+    }
   }
 
   .logo {
-    height: 144px;
-    padding-top: 50px;
+    padding: 50px 0 40px;
+
+    @media only screen and (min-width: 940px) {
+      padding: 100px 0 75px;
+    }
   }
 </style>

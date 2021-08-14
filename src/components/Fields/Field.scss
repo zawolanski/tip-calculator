@@ -1,8 +1,22 @@
 .field {
   padding: 32px;
-  padding-bottom: 0;
+  padding-bottom: 32px;
+
+  @media only screen and (min-width: 940px) {
+    padding: 48px;
+
+    width: 50%;
+  }
 }
 
 .field__container {
   margin-bottom: 32px;
+
+  @media only screen and (min-width: 940px) {
+    margin-bottom: 40px;
+
+    &--last {
+      margin-bottom: 0px;
+    }
+  }
 }

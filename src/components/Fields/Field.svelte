@@ -12,7 +12,7 @@
   <div class="field__container">
     <Checkbox />
   </div>
-  <div class="field__container">
+  <div class="field__container field__container--last">
     <TextField label="Number of People" name="numberOfPeople"><PersonIcon slot="icon" /></TextField>
   </div>
 </div>

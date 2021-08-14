@@ -4,7 +4,7 @@
 </script>
 
 <div class="content">
-  <form>
+  <form class="content__form">
     <Fields />
     <Summary />
   </form>
