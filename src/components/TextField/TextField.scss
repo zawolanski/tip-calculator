@@ -31,6 +31,11 @@
   outline: none;
   border: 2px solid transparent;
 
+  &::placeholder {
+    color: var(--very__dark__cyab);
+    opacity: 0.35;
+  }
+
   &:focus,
   &:hover {
     border: 2px solid var(--strong__cyan);
@@ -38,6 +43,11 @@
 
   &--error {
     border: 2px solid var(--error);
+  }
+
+  &--tip::placeholder {
+    color: var(--tip);
+    opacity: 1;
   }
 }
 

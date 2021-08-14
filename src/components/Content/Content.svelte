@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Fields from '../Field/Field.svelte';
+  import Fields from '../Fields/Field.svelte';
   import Summary from '../Summary/Summary.svelte';
 </script>
 
@@ -10,6 +10,6 @@
   </form>
 </div>
 
-<style>
+<style lang="scss">
   @import './Content';
 </style>
