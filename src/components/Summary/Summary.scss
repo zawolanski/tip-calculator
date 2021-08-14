@@ -55,4 +55,11 @@
   line-height: 30px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.15s;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: var(--button--hover);
+  }
 }
