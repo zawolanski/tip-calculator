@@ -10,6 +10,7 @@
   --error: hsl(13, 70%, 61%);
   --tip: hsl(180, 18%, 40%);
   --button--hover: hsl(172, 61%, 77%);
+  --button--disabled: hsl(183, 78%, 24%);
 }
 
 *,

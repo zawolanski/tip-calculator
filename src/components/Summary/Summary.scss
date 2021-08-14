@@ -62,4 +62,9 @@
   &:focus {
     background-color: var(--button--hover);
   }
+
+  &:disabled {
+    background-color: var(--button--disabled);
+    color: var(--very__dark__cyab);
+  }
 }

@@ -14,7 +14,7 @@
       </div>
       <p class="summary__amount">0.00</p>
     </div>
-    <button type="reset" class="summary__button">reset</button>
+    <button disabled type="reset" class="summary__button">reset</button>
   </div>
 </div>
 

@@ -20,7 +20,7 @@
     {placeholder}
     class="field__input {errorMsg && 'field__input--error'} {isTip && 'field__input--tip'}"
   />
-  <div class="field__icon"><slot name="icon" /></div>
+  {#if !isTip}<div class="field__icon"><slot name="icon" /></div>{/if}
 </div>
 
 <style lang="scss">
