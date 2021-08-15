@@ -1,9 +1,12 @@
 <script lang="ts">
+  import { store } from '../../store/store.js';
   export let label: string;
   export let name: string;
-  export let errorMsg: string = undefined;
+  export let val: 'bill' | 'numberOfPeople' | 'tip__custom';
+  export let errorMsg: string | undefined = undefined;
   export let placeholder = '0';
   export let isTip = false;
+  export let handleChange = (e?: any) => {};
 </script>
 
 <div class="field__label__wrapper">
@@ -14,10 +17,12 @@
 </div>
 <div class="field__wrapper">
   <input
-    type="number"
     id={name}
     {name}
     {placeholder}
+    bind:value={$store.values[val]}
+    on:keyup={handleChange}
+    on:change={handleChange}
     class="field__input {errorMsg && 'field__input--error'} {isTip && 'field__input--tip'}"
   />
   {#if !isTip}<div class="field__icon"><slot name="icon" /></div>{/if}

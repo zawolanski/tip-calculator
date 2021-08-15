@@ -1,6 +1,33 @@
 <script lang="ts">
+  import { store } from '../../store/store';
+  import { isNumber } from '../../util/validators';
+
   import Radio from '../Radio/Radio.svelte';
   import TextField from '../TextField/TextField.svelte';
+
+  $: touched = { ...$store.touched };
+  $: errors = { ...$store.errors };
+
+  const handleChange = () => {
+    touched.tip__custom = true;
+
+    if (
+      $store.values.tip__custom === null ||
+      isNumber($store.values.tip__custom) ||
+      parseInt($store.values.tip__custom) < 0 ||
+      +$store.values.tip__custom > 100
+    )
+      errors.tip__custom = 'An invalid number';
+    else errors.tip__custom = null;
+
+    store.update((store) => ({
+      values: { ...store.values, tip: null },
+      errors: { ...store.errors, ...errors },
+      touched: { ...store.touched, ...touched },
+    }));
+
+    if (errors.tip__custom !== null) return;
+  };
 </script>
 
 <fieldset>
@@ -11,7 +38,19 @@
     <Radio id="tip__15" label="15" value="15" />
     <Radio id="tip__25" label="25" value="25" />
     <Radio id="tip__50" label="50" value="50" />
-    <div><TextField label="Custom tip" name="tip__custom" placeholder="Custom" isTip /></div>
+    <div>
+      <TextField
+        label="Custom tip"
+        name="tip__custom"
+        placeholder="Custom"
+        isTip
+        val="tip__custom"
+        errorMsg={$store.errors.tip__custom && $store.touched.tip__custom
+          ? $store.errors.tip__custom
+          : ''}
+        {handleChange}
+      />
+    </div>
   </div>
 </fieldset>
 

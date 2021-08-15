@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Fields from '../Fields/Field.svelte';
   import Summary from '../Summary/Summary.svelte';
+  import Field from '../Fields/Field.svelte';
 </script>
 
 <div class="content">
-  <form class="content__form">
-    <Fields />
+  <form class="content__form" autocomplete="off">
+    <Field />
     <Summary />
   </form>
 </div>

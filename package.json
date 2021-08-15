@@ -25,7 +25,10 @@
     "typescript": "^4.0.0"
   },
   "dependencies": {
+    "@types/yup": "^0.29.13",
     "sass": "^1.37.5",
-    "sirv-cli": "^1.0.0"
+    "sirv-cli": "^1.0.0",
+    "svelte-forms-lib": "^1.10.5",
+    "yup": "^0.32.9"
   }
 }
