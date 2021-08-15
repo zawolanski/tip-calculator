@@ -11,8 +11,6 @@
     let errors = $store.errors;
     let touched = $store.touched;
 
-    console.log(errors);
-
     if (
       errors.bill === null &&
       touched.bill &&
