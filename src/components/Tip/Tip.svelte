@@ -12,10 +12,9 @@
     touched.tip__custom = true;
 
     if (
-      $store.values.tip__custom === null ||
       isNumber($store.values.tip__custom) ||
-      parseInt($store.values.tip__custom) < 0 ||
-      +$store.values.tip__custom > 100
+      ($store.values.tip__custom !== null && parseInt($store.values.tip__custom) < 0) ||
+      ($store.values.tip__custom !== null && +$store.values.tip__custom) > 100
     )
       errors.tip__custom = 'An invalid number';
     else errors.tip__custom = null;

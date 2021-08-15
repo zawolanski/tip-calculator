@@ -14,19 +14,33 @@
     if (
       errors.bill === null &&
       touched.bill &&
+      bill &&
       errors.numberOfPeople === null &&
-      touched.numberOfPeople
+      touched.numberOfPeople &&
+      numberOfPeople &&
+      numberOfPeople !== '0'
     ) {
       total = +bill / +numberOfPeople;
 
-      if (errors.tip__custom === null && touched.tip__custom) {
+      if (
+        (errors.tip__custom === null && touched.tip__custom && tip__custom !== null) ||
+        tip !== null
+      ) {
         tipAmount = total * (+tip / 100);
         total += tipAmount;
       }
     } else {
       total = 0;
+      tipAmount = 0;
     }
   }
+
+  const resetForm = () => {
+    store.update((store) => ({
+      ...store,
+      values: { bill: null, numberOfPeople: null, tip: null, tip__custom: null },
+    }));
+  };
 </script>
 
 <div class="wrapper">
@@ -47,7 +61,14 @@
         <p class="summary__amount">{total.toFixed(2)}</p>
       </div>
     </div>
-    <button disabled type="reset" class="summary__button">reset</button>
+    <button
+      disabled={$store.values.bill === null &&
+        $store.values.numberOfPeople === null &&
+        $store.values.tip__custom === null}
+      type="reset"
+      on:click={resetForm}
+      class="summary__button">reset</button
+    >
   </div>
 </div>
 
