@@ -1,9 +1,9 @@
-const ghpages = require('gh-pages');
+var ghpages = require('gh-pages');
 
 ghpages.publish(
   'public',
   {
-    branch: 'production',
+    branch: 'gh-pages',
     repo: 'https://github.com/zawolanski/tip-calculator.git',
     user: {
       name: 'zawolanski',
