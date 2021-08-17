@@ -1,34 +1,24 @@
-<script>
+<script lang="ts">
   import { store } from '../../store/store';
 
   $: total = 0;
   $: tipAmount = 0;
 
   $: {
-    let tip = $store.values.tip || $store.values.tip__custom;
-    let bill = $store.values.bill;
-    let numberOfPeople = $store.values.numberOfPeople;
+    let bill = $store.values.bill || 0;
+    let numberOfPeople = $store.values.numberOfPeople || 1;
+    let tip = $store.values.tip;
+    let tip__custom = $store.values.tip__custom || 0;
     let errors = $store.errors;
-    let touched = $store.touched;
 
-    if (
-      errors.bill === null &&
-      touched.bill &&
-      bill &&
-      errors.numberOfPeople === null &&
-      touched.numberOfPeople &&
-      numberOfPeople &&
-      numberOfPeople !== '0'
-    ) {
+    if (errors.bill === '' && errors.numberOfPeople === '') {
       total = +bill / +numberOfPeople;
 
-      if (
-        (errors.tip__custom === null && touched.tip__custom && tip__custom !== null) ||
-        tip !== null
-      ) {
-        tipAmount = total * (+tip / 100);
-        total += tipAmount;
-      }
+      if (errors.tip__custom === '') tipAmount = total * (+tip__custom / 100);
+      else if (tip) tipAmount = total * (+tip / 100);
+      else tipAmount = 0;
+
+      total += tipAmount;
     } else {
       total = 0;
       tipAmount = 0;
@@ -39,6 +29,7 @@
     store.update((store) => ({
       ...store,
       values: { bill: null, numberOfPeople: null, tip: null, tip__custom: null },
+      errors: { bill: null, numberOfPeople: null, tip__custom: null },
     }));
   };
 </script>
@@ -64,7 +55,8 @@
     <button
       disabled={$store.values.bill === null &&
         $store.values.numberOfPeople === null &&
-        $store.values.tip__custom === null}
+        $store.values.tip__custom === null &&
+        $store.values.tip === null}
       type="reset"
       on:click={resetForm}
       class="summary__button">reset</button

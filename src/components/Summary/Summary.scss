@@ -58,6 +58,8 @@
   font-size: 32px;
   line-height: 47px;
   letter-spacing: -0.666667px;
+  max-width: 70%;
+  overflow: hidden;
 
   &:before {
     content: '$';

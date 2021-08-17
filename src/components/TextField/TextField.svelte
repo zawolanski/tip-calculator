@@ -6,7 +6,6 @@
   export let errorMsg: string | undefined = undefined;
   export let placeholder = '0';
   export let isTip = false;
-  export let handleChange = (e?: any) => {};
 </script>
 
 <div class="field__label__wrapper">
@@ -21,8 +20,9 @@
     {name}
     {placeholder}
     bind:value={$store.values[val]}
-    on:keyup={handleChange}
-    on:change={handleChange}
+    on:keyup
+    on:change
+    on:input
     class="field__input {errorMsg && 'field__input--error'} {isTip && 'field__input--tip'}"
   />
   {#if !isTip}<div class="field__icon"><slot name="icon" /></div>{/if}

@@ -12,11 +12,6 @@ interface IStore {
     numberOfPeople: string | null;
     tip__custom: string | null;
   };
-  touched: {
-    bill: boolean;
-    numberOfPeople: boolean;
-    tip__custom: boolean;
-  };
 }
 
 export const store = writable<IStore>({
@@ -27,5 +22,4 @@ export const store = writable<IStore>({
     tip__custom: null,
   },
   errors: { bill: null, numberOfPeople: null, tip__custom: null },
-  touched: { bill: false, numberOfPeople: false, tip__custom: false },
 });

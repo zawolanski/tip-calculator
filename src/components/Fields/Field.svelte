@@ -4,32 +4,7 @@
   import DolarIcon from '../../assets/icon-dollar.svg';
   import PersonIcon from '../../assets/icon-person.svg';
   import Tip from '../Tip/Tip.svelte';
-  import { isFloat, isNumber, isPositive, isRequired, isZero } from '../../util/validators';
-
-  $: touched = { ...$store.touched };
-  $: errors = { ...$store.errors };
-
-  const handleChange = (e: any) => {
-    const name: 'bill' | 'numberOfPeople' = e.target.name;
-
-    touched[name] = true;
-
-    if (isRequired($store.values[name])) errors[name] = 'Field is required';
-    else if (isNumber($store.values[name])) errors[name] = 'Must be a number';
-    else if (isPositive($store.values[name])) errors[name] = 'Must be positive';
-    else if (isZero($store.values[name])) errors[name] = "Can't be zero";
-    else if (name === 'numberOfPeople' && isFloat($store.values[name]))
-      errors[name] = 'Must be an integer';
-    else errors[name] = null;
-
-    store.update((store) => ({
-      ...store,
-      errors: { ...store.errors, ...errors },
-      touched: { ...store.touched, ...touched },
-    }));
-
-    if (errors[name] !== null) return;
-  };
+  import { validate } from '../../util/validate';
 </script>
 
 <div class="field">
@@ -38,8 +13,8 @@
       label="Bill"
       name="bill"
       val="bill"
-      handleChange={(e) => handleChange(e)}
-      errorMsg={$store.errors.bill && $store.touched.bill ? $store.errors.bill : ''}
+      errorMsg={$store.errors.bill || ''}
+      on:input={(e) => validate(e)}
     >
       <DolarIcon slot="icon" />
     </TextField>
@@ -52,10 +27,8 @@
       label="Number of People"
       name="numberOfPeople"
       val="numberOfPeople"
-      handleChange={(e) => handleChange(e)}
-      errorMsg={$store.errors.numberOfPeople && $store.touched.numberOfPeople
-        ? $store.errors.numberOfPeople
-        : ''}
+      errorMsg={$store.errors.numberOfPeople || ''}
+      on:input={(e) => validate(e)}
     >
       <PersonIcon slot="icon" />
     </TextField>
