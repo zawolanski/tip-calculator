@@ -16,7 +16,7 @@
       errorMsg={$store.errors.bill || ''}
       on:input={(e) => validate(e)}
     >
-      <DolarIcon slot="icon" />
+      <svelte:fragment slot="icon"><DolarIcon /></svelte:fragment>
     </TextField>
   </div>
   <div class="field__container">
@@ -30,7 +30,7 @@
       errorMsg={$store.errors.numberOfPeople || ''}
       on:input={(e) => validate(e)}
     >
-      <PersonIcon slot="icon" />
+      <svelte:fragment slot="icon"><PersonIcon /></svelte:fragment>
     </TextField>
   </div>
 </div>
