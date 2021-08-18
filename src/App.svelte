@@ -4,9 +4,10 @@
 </script>
 
 <div class="main">
-  <div class="logo">
+  <header class="logo">
+    <h1 class="visually-hidden">Tip calculator</h1>
     <Logo style="margin: 0 auto; display: block" />
-  </div>
+  </header>
   <Content />
 </div>
 
@@ -31,5 +32,15 @@
     @media only screen and (min-width: 940px) {
       margin: 100px 0 75px;
     }
+  }
+
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 </style>

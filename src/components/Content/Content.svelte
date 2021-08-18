@@ -3,12 +3,12 @@
   import Field from '../Fields/Field.svelte';
 </script>
 
-<div class="content">
+<main class="content">
   <form class="content__form" autocomplete="off">
     <Field />
     <Summary />
   </form>
-</div>
+</main>
 
 <style lang="scss">
   .content {
