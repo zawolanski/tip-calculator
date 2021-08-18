@@ -29,7 +29,7 @@
     margin: 50px 0 40px 0;
 
     @media only screen and (min-width: 940px) {
-      padding: 100px 0 75px;
+      margin: 100px 0 75px;
     }
   }
 </style>
