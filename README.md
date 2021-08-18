@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links 
 
-- link to [demo](https://zawolanski.github.io/tip-calculator/public/)
+- link to [demo](https://tip-calculator-livid.vercel.app/)
 
 ## My process
 
